@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Light Reset — 7-Day Workbook · Inner Light Studio by Melissa Vermaak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700&display=swap">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --cream:#FDF9F4;
+  --parchment:#F2E8D8;
+  --sand:#E0CEB8;
+  --terracotta:#BF6B50;
+  --terra-light:#D4957A;
+  --terra-pale:#F8EDE8;
+  --sage:#5B8B80;
+  --sage-light:#8DB5A8;
+  --sage-pale:#E8F2F0;
+  --deep:#2C2018;
+  --warm:#6B5040;
+  --mid:#8B7B6B;
+  --gold:#C9A86E;
+  --olive:#8B9E5E;
+  --blush:#F5E4DC;
+  --purple-soft:#B09EC0;
+  --rainbow:linear-gradient(90deg,#4B8B7C 0%,#6B9975 18%,#9BA45E 34%,#C4B068 48%,#CDA068 58%,#C2705A 72%,#A85040 88%,#8B4535 100%);
+}
+
+html,body{height:100%;background:var(--cream)}
+
+.workbook{display:flex;height:100vh;overflow:hidden;font-family:'Lato',sans-serif;background:var(--cream);color:var(--deep)}
+
+/* ── SIDEBAR ─────────────────────────────── */
+.sidebar{
+  width:224px;min-width:224px;
+  background:var(--deep);
+  display:flex;flex-direction:column;
+  padding:28px 0 20px;
+  overflow-y:auto;z-index:100;flex-shrink:0;
+  transition:transform .3s ease;
+}
+.sidebar-brand{padding:0 20px 24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sidebar-brand h1{font-family:'Playfair Display',serif;font-size:14px;font-weight:400;color:#E0CEB8;line-height:1.45;font-style:italic}
+.sidebar-brand p{font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-top:6px;font-weight:400}
+.sidebar-brand .rainbow-mini{height:2px;background:var(--rainbow);margin-top:14px}
+.sidebar-nav{padding:16px 0;flex:1}
+.nav-group-label{font-size:7.5px;letter-spacing:.25em;text-transform:uppercase;color:rgba(139,123,107,0.7);padding:0 20px;margin:14px 0 5px;font-weight:400}
+.nav-item{
+  display:flex;align-items:center;gap:9px;
+  padding:8px 20px;cursor:pointer;
+  transition:all .2s ease;
+  font-size:11px;font-weight:300;letter-spacing:.02em;
+  color:rgba(224,206,184,0.65);
+  border-left:2px solid transparent;
+  user-select:none;
+}
+.nav-item:hover{color:rgba(224,206,184,0.9);background:rgba(191,107,80,.07)}
+.nav-item.active{color:var(--terracotta);border-left-color:var(--terracotta);background:rgba(191,107,80,.1)}
+.nav-dot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5;flex-shrink:0;transition:opacity .2s}
+.nav-item.active .nav-dot{opacity:1}
+.sidebar-progress{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+.progress-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(139,123,107,0.7);margin-bottom:7px;font-weight:300}
+.progress-track{height:2px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--terracotta);border-radius:2px;transition:width .5s ease}
+
+/* ── MAIN ────────────────────────────────── */
+.main{flex:1;overflow-y:auto;min-height:0}
+#page-content{animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── PAGE SHELL ──────────────────────────── */
+.page{max-width:700px;margin:0 auto;padding:0 44px 100px}
+.page-header{padding:40px 0 0}
+.day-eyebrow{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--terracotta);font-weight:700;margin-bottom:6px}
+.page-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;font-style:italic;color:var(--terracotta);line-height:1.15;margin-bottom:14px}
+.rainbow-bar{height:3px;background:var(--rainbow);margin:0 -44px;width:calc(100% + 88px);margin-bottom:28px}
+
+/* ── TYPOGRAPHY ──────────────────────────── */
+.body-text{font-size:13.5px;line-height:1.85;color:var(--warm);font-weight:300;margin-bottom:16px}
+.body-text strong{color:var(--deep);font-weight:700}
+.italic-text{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--warm);line-height:1.7;margin-bottom:16px}
+.prompt-label{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--terracotta);margin-bottom:8px;display:block}
+.section-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);font-weight:700;margin:28px 0 12px}
+.quote-box{background:var(--parchment);border-radius:10px;padding:18px 24px;font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--warm);line-height:1.75;margin:20px 0;text-align:center}
+.instruction-box{background:var(--sage-pale);border-radius:8px;padding:14px 20px;font-size:12.5px;font-style:italic;color:var(--sage);line-height:1.7;margin-bottom:20px}
+
+/* ── TEXT INPUTS ─────────────────────────── */
+.journal-input{
+  width:100%;background:transparent;
+  border:none;border-bottom:1px solid var(--sand);
+  padding:10px 4px;font-family:'Playfair Display',serif;
+  font-size:14px;color:var(--deep);outline:none;
+  line-height:1.6;resize:none;
+  transition:border-color .2s;display:block;
+  min-height:44px;
+}
+.journal-input:focus{border-bottom-color:var(--terracotta)}
+.journal-input::placeholder{color:var(--sand);font-style:italic}
+.text-input-inline{
+  border:none;border-bottom:1.5px solid var(--sand);
+  font-family:'Playfair Display',serif;font-size:15px;
+  color:var(--deep);outline:none;background:transparent;
+  padding:2px 6px;width:100%;max-width:280px;
+}
+.text-input-inline:focus{border-bottom-color:var(--terracotta)}
+.field-line{display:block;height:1px;background:var(--sand);margin:10px 0}
+
+/* ── MOOD SELECTOR ───────────────────────── */
+.mood-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
+.mood-btn{
+  display:flex;align-items:center;gap:7px;
+  padding:7px 14px;border:1.5px solid var(--sand);
+  background:white;cursor:pointer;border-radius:20px;
+  font-family:'Lato',sans-serif;font-size:11.5px;color:var(--warm);
+  transition:all .2s;user-select:none;
+}
+.mood-btn::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--sand);flex-shrink:0}
+.mood-btn:hover{border-color:var(--terra-light);color:var(--terracotta)}
+.mood-btn.selected{border-color:var(--terracotta);background:var(--terra-pale);color:var(--terracotta)}
+.mood-btn[data-mood="running"]::before{background:#7B8EA0}
+.mood-btn[data-mood="overwhelmed"]::before{background:#C27060}
+.mood-btn[data-mood="managing"]::before{background:#C9B86E}
+.mood-btn[data-mood="soft"]::before{background:#8DB5A8}
+.mood-btn[data-mood="alive"]::before{background:#8BAE5E}
+.mood-btn.selected::before{background:var(--terracotta)}
+
+/* ── WORD CHIPS ──────────────────────────── */
+.chip-group{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--parchment)}
+.chip-group:last-child{border-bottom:none}
+.chip-area-label{font-size:11.5px;font-weight:700;color:var(--terracotta);letter-spacing:.04em;margin-bottom:4px}
+.chip-hint{font-size:10.5px;color:var(--mid);font-style:italic;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{
+  padding:4px 11px;border:1px solid var(--sand);
+  border-radius:14px;font-size:11px;color:var(--warm);
+  cursor:pointer;background:white;transition:all .15s;
+  user-select:none;
+}
+.chip:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.chip.selected{background:var(--terracotta);color:white;border-color:var(--terracotta)}
+
+/* ── TWO-COLUMN ──────────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.col-wrap{background:var(--parchment);overflow:hidden}
+.col-header{
+  padding:10px 14px;
+  font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:white;
+}
+.col-header.terra{background:var(--terracotta)}
+.col-header.sage{background:var(--sage)}
+.col-items{padding:10px 14px}
+.bullet-row{display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(224,206,184,.5);padding:4px 0}
+.bullet-dot{color:var(--terracotta);font-size:16px;flex-shrink:0;line-height:1}
+.bullet-field{
+  flex:1;border:none;background:transparent;
+  font-family:'Lato',sans-serif;font-size:12px;
+  color:var(--deep);outline:none;padding:3px 0;
+}
+
+/* ── PRACTICE TILES ──────────────────────── */
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.practice-tile{background:white;border:1px solid var(--parchment);overflow:hidden;position:relative}
+.tile-head{
+  padding:8px 12px;
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:white;background:var(--terracotta);
+}
+.tile-head.sage{background:var(--sage)}
+.tile-inner{padding:12px}
+.tile-title{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--terracotta);margin-bottom:6px;font-weight:600}
+.tile-sub{font-size:11.5px;color:var(--terracotta);font-weight:700;margin-bottom:5px}
+.tile-body{font-size:11px;line-height:1.65;color:var(--warm)}
+.tile-body li{margin-left:12px;margin-bottom:2px}
+.practice-done-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:10px;cursor:pointer;
+  font-size:9.5px;color:var(--mid);text-transform:uppercase;
+  letter-spacing:.08em;border:none;background:none;font-family:'Lato',sans-serif;
+  padding:0;
+}
+.check-box{
+  width:14px;height:14px;border:1.5px solid var(--sand);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all .2s;font-size:10px;color:white;
+}
+.practice-done-btn.done .check-box{background:var(--sage);border-color:var(--sage)}
+.practice-done-btn.done{color:var(--sage)}
+
+/* ── PERMISSION SLIP ─────────────────────── */
+.permission-slip{border:1.5px dashed var(--sand);padding:28px 28px 24px;margin:20px 0}
+.perm-name-row{font-family:'Playfair Display',serif;font-size:16px;color:var(--terracotta);margin-bottom:14px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.perm-name-input{
+  border:none;border-bottom:1.5px solid var(--sand);
+  font-family:'Playfair Display',serif;font-size:16px;color:var(--deep);
+  flex:1;min-width:160px;outline:none;padding:0 4px;background:transparent;
+}
+.perm-name-input:focus{border-bottom-color:var(--terracotta)}
+.perm-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--deep);margin-bottom:16px;font-weight:600}
+.perm-list{list-style:none;margin-bottom:22px}
+.perm-list li{
+  font-family:'Playfair Display',serif;font-size:13.5px;font-style:italic;
+  color:var(--warm);padding:6px 0 6px 18px;position:relative;
+  border-bottom:1px solid var(--parchment);line-height:1.55;
+}
+.perm-list li::before{content:'•';color:var(--terracotta);position:absolute;left:0}
+.sign-row{display:flex;gap:32px;flex-wrap:wrap}
+.sign-field{display:flex;flex-direction:column;gap:4px}
+.sign-label{font-size:11px;color:var(--mid);font-weight:400}
+.sign-input{
+  border:none;border-bottom:1.5px solid var(--sand);
+  font-family:'Playfair Display',serif;font-size:15px;color:var(--terracotta);
+  min-width:180px;outline:none;padding:2px 4px;background:transparent;
+}
+.sign-input:focus{border-bottom-color:var(--terracotta)}
+
+/* ── RHYTHM BLOCKS ───────────────────────── */
+.rhythm-block{margin-bottom:20px}
+.rhythm-head{
+  padding:10px 14px;
+  font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:white;
+  margin-bottom:0;
+}
+.rhythm-head.morning{background:var(--sage-light)}
+.rhythm-head.afternoon{background:var(--terra-light)}
+.rhythm-head.evening{background:var(--purple-soft)}
+.rhythm-hint{font-size:12px;font-style:italic;color:var(--mid);padding:8px 14px;background:var(--parchment)}
+.rhythm-ta{
+  width:100%;background:var(--parchment);border:none;border-top:1px solid var(--sand);
+  padding:10px 14px;font-family:'Playfair Display',serif;font-size:13.5px;
+  color:var(--deep);resize:vertical;outline:none;min-height:70px;
+}
+.rhythm-ta:focus{outline:1px solid var(--terra-light)}
+
+/* ── AFFIRMATION CARDS ───────────────────── */
+.aff-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:20px 0}
+.aff-card{
+  background:var(--parchment);border:1.5px solid transparent;
+  padding:14px 14px 14px 12px;cursor:pointer;
+  display:flex;align-items:center;gap:10px;
+  transition:all .2s;user-select:none;
+}
+.aff-card:hover{border-color:var(--terra-light)}
+.aff-card.picked{background:var(--terra-pale);border-color:var(--terracotta)}
+.aff-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--sand);flex-shrink:0;width:24px;font-weight:700;text-align:center}
+.aff-card.picked .aff-num{color:var(--terra-light)}
+.aff-txt{font-family:'Playfair Display',serif;font-size:12.5px;font-style:italic;color:var(--warm);line-height:1.5}
+.aff-card.picked .aff-txt{color:var(--terracotta)}
+
+/* ── DAY TRACKER ─────────────────────────── */
+.day-tracker{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:8px 0 24px}
+.tracker-day{text-align:center}
+.tracker-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;font-weight:700}
+.tracker-input{
+  width:100%;border:none;border-bottom:1.5px solid var(--sand);
+  background:transparent;font-family:'Playfair Display',serif;
+  font-size:12px;color:var(--deep);outline:none;padding:4px 2px;text-align:center;
+  font-style:italic;
+}
+.tracker-input:focus{border-bottom-color:var(--terracotta)}
+
+/* ── DRAW REDIRECT ───────────────────────── */
+.draw-card{
+  background:var(--sage-pale);border:2px dashed var(--sage-light);
+  padding:28px;text-align:center;margin:16px 0;
+}
+.draw-card-icon{font-size:36px;margin-bottom:10px}
+.draw-card-title{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--sage);margin-bottom:7px;font-weight:600}
+.draw-card-text{font-size:12.5px;color:var(--mid);line-height:1.65;max-width:380px;margin:0 auto}
+
+/* ── LETTER PAGE ─────────────────────────── */
+.lined-area{
+  background:white;border:1px solid var(--parchment);
+  padding:20px 24px;min-height:320px;
+  background-image:repeating-linear-gradient(transparent,transparent 30px,var(--parchment) 30px,var(--parchment) 31px);
+  background-size:100% 31px;background-position:0 30px;
+}
+.lined-ta{
+  width:100%;min-height:320px;
+  background:transparent;border:none;outline:none;
+  font-family:'Playfair Display',serif;font-size:14px;
+  color:var(--deep);line-height:31px;resize:none;
+  padding:0;
+}
+.sign-block{margin-top:24px;display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end}
+
+/* ── FRIDGE PRINTABLES ───────────────────── */
+.fridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.fridge-card{border:2px dashed var(--sand);padding:20px;border-radius:6px}
+.fridge-title{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--terracotta);font-weight:700;text-align:center;margin-bottom:14px}
+.fridge-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--warm);padding:7px 0;border-bottom:1px solid var(--parchment);text-align:center;line-height:1.4}
+.fridge-brand{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--terracotta);text-align:center;margin-top:14px}
+.fridge-full{grid-column:1/-1}
+.print-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--terracotta);color:white;border:none;
+  padding:12px 28px;font-family:'Lato',sans-serif;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;cursor:pointer;
+  margin-bottom:20px;transition:background .2s;
+}
+.print-btn:hover{background:var(--warm)}
+
+/* ── COVER PAGE ──────────────────────────── */
+.cover-page{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;padding:60px 44px;
+  position:relative;overflow:hidden;
+}
+.cover-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 75% 25%,rgba(191,107,80,.11) 0%,transparent 55%),
+    radial-gradient(ellipse at 25% 75%,rgba(91,139,128,.08) 0%,transparent 55%);
+}
+.cover-rainbow-top{position:absolute;top:0;left:0;right:0;height:4px;background:var(--rainbow)}
+.cover-rainbow-bot{position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--rainbow)}
+.cover-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--terracotta);margin-bottom:24px;font-weight:700}
+.cover-tag{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--sage);margin-bottom:16px}
+.cover-h1{font-family:'Playfair Display',serif;font-size:62px;font-weight:700;font-style:italic;color:var(--terracotta);line-height:1;margin-bottom:4px}
+.cover-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--warm);line-height:1.4;margin-bottom:24px}
+.cover-divider{width:44px;height:2px;background:var(--rainbow);margin:0 0 24px}
+.cover-desc{font-size:14px;line-height:1.8;color:var(--warm);max-width:440px;font-weight:300;margin-bottom:40px}
+.cover-stats{display:flex;gap:36px;margin-bottom:40px}
+.stat-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--terracotta)}
+.stat-l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid)}
+.cover-cta{display:inline-flex;align-items:center;gap:10px;background:var(--deep);color:var(--parchment);border:none;padding:13px 30px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.cover-cta:hover{background:var(--terracotta)}
+.cover-author{margin-top:24px;font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--mid)}
+
+/* ── PAGE NAV ────────────────────────────── */
+.page-nav{display:flex;justify-content:space-between;align-items:center;margin-top:64px;padding-top:32px;border-top:1px solid var(--parchment)}
+.nav-btn{display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:10.5px;letter-spacing:.1em;color:var(--mid);transition:color .2s;text-transform:uppercase;padding:7px 0}
+.nav-btn:hover:not([disabled]){color:var(--terracotta)}
+.nav-btn[disabled]{opacity:.22;cursor:default}
+.page-indicator{font-family:'Playfair Display',serif;font-size:12px;color:var(--sand);letter-spacing:.08em}
+
+/* ── INNER LIGHT PAGE ────────────────────── */
+.inner-light-page{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:60px 44px;text-align:center;
+  position:relative;
+}
+.light-logo{margin-bottom:32px}
+.light-triangle{width:120px;height:auto;display:block;margin:0 auto 24px}
+.light-brand{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--deep);text-transform:uppercase;margin-bottom:4px}
+.light-sub{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.light-quote{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;font-weight:600;color:var(--terracotta);line-height:1.3;margin:28px 0 16px}
+.light-body{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--warm);line-height:1.7;max-width:500px;margin:0 auto 32px}
+.light-prompt{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:var(--mid);margin-bottom:12px;text-align:left;display:block}
+
+/* ── MOBILE ──────────────────────────────── */
+.mobile-toggle{display:none;position:fixed;top:14px;left:14px;z-index:200;background:var(--deep);color:var(--parchment);border:none;width:38px;height:38px;cursor:pointer;font-size:18px;align-items:center;justify-content:center}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(44,32,24,.5);z-index:90}
+
+/* ── SCROLLBAR ───────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--sand);border-radius:2px}
+
+/* ── PRINT ───────────────────────────────── */
+@media print{
+  .sidebar,.mobile-toggle,.sidebar-overlay,.page-nav{display:none!important}
+  .main{margin:0!important;overflow:visible!important}
+  .workbook{height:auto!important;overflow:visible!important}
+  body{background:white}
+}
+
+@media(max-width:800px){
+  .mobile-toggle{display:flex}
+  .sidebar{position:fixed;top:0;left:0;bottom:0;transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay.open{display:block}
+  .page{padding:0 22px 80px}
+  .page-header{padding:48px 0 0}
+  .rainbow-bar{margin:0 -22px;width:calc(100% + 44px)}
+  .cover-page{padding:60px 22px}
+  .cover-h1{font-size:44px}
+  .inner-light-page{padding:48px 22px}
+  .practice-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .aff-grid{grid-template-columns:1fr}
+  .fridge-grid{grid-template-columns:1fr}
+  .day-tracker{grid-template-columns:repeat(4,1fr)}
+  .sign-row{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+<button class="mobile-toggle" id="mobile-toggle">☰</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="workbook" id="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main" id="main-content">
+    <div id="page-content"></div>
+  </main>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  CONSTANTS
+// ═══════════════════════════════════════════════════════════
+
+const AFFIRMATIONS = [
+  'I am enough, exactly as I am right now.',
+  'My feelings are not a problem to be solved.',
+  'My creativity belongs to me alone.',
+  'My body is worthy of my gratitude.',
+  'Slowing down is not falling behind.',
+  'I am allowed to rest without earning it first.',
+  'I am doing something beautiful, even in the mess.',
+  'I am learning, and that is enough.',
+  'I am allowed to want something for myself.',
+  'I give myself permission to begin again today.'
+];
+
+const BODY_CHIPS = [
+  { key:'head',    label:'Head & mind',    hint:'Racing / foggy / heavy / still / buzzing', words:['Racing','Foggy','Heavy','Still','Buzzing'] },
+  { key:'jaw',     label:'Jaw & shoulders', hint:'Clenched / tight / heavy / released / soft', words:['Clenched','Tight','Heavy','Released','Soft'] },
+  { key:'chest',   label:'Chest & heart',  hint:'Constricted / open / tender / steady / hollow', words:['Constricted','Open','Tender','Steady','Hollow'] },
+  { key:'stomach', label:'Stomach & gut',  hint:'Knotted / empty / warm / tight / fluttery', words:['Knotted','Empty','Warm','Tight','Fluttery'] },
+  { key:'hands',   label:'Hands & arms',   hint:'Tense / restless / numb / tired / open', words:['Tense','Restless','Numb','Tired','Open'] },
+  { key:'legs',    label:'Legs & feet',    hint:'Heavy / restless / grounded / unsteady / still', words:['Heavy','Restless','Grounded','Unsteady','Still'] },
+];
+
+const PRACTICES = [
+  { key:'colour',   head:'Intuitive Colour Practice', sage:false, title:'What Colour Feels Like You Today?', sub:'', body:'Without overthinking, choose 1–3 colours that match how you feel emotionally today. You might scribble with them, paint with them, collect objects in those colours, wear them, or create a colour swatch page.<br><br><em>No explanation needed. Let colour speak before words do.</em>' },
+  { key:'music',    head:'Music + Mark Making',        sage:false, title:'Song + Movement',                  sub:'', body:'Put on one calming song from today\'s playlist. For the length of the song: draw lines, shapes, textures, circles, patterns, movement — without trying to make anything "good."<br><br><em>The goal is not art. The goal is expression.</em>' },
+  { key:'barefoot', head:'Barefoot Grounding Ritual',  sage:true,  title:'Touch the Earth',                  sub:'Step outside barefoot for 2–5 minutes.', body:'Feel: the temperature, the texture beneath you, the air on your skin, the weight of your body being held. Take one slower breath than usual.<br><br><em>"I am allowed to slow down too."</em>' },
+  { key:'texture',  head:'Texture Collection Palette', sage:false, title:'Notice What Feels Beautiful',      sub:'', body:'Throughout the day, collect or photograph small textures that feel calming or alive to you: linen, leaves, tea steam, sunlight, chipped paint, fabric, shadows, messy paint palettes.' },
+  { key:'fivemin',  head:'5 Minute Creative Ritual',   sage:false, title:'Tiny Counts',                      sub:'Set a timer for 5 minutes only.', body:'Doodling, collaging, journaling, arranging objects, tearing paper, colouring, sketching, moving colour across a page.<br><br><em>Stop when the timer ends. You are practising returning — not proving.</em>' },
+  { key:'voice',    head:'Voice Note Reflection',       sage:true,  title:'Speak Instead of Write',           sub:'', body:'If writing feels exhausting today, open your phone and record a short voice note. You might answer: What am I feeling? What do I need? What felt alive in me today? What am I craving more of?<br><br><em>Let your voice exist without editing it.</em>' },
+  { key:'perm',     head:'Creative Permission Practice',sage:false, title:'Make Something No One Will See',    sub:'', body:'Create something today that does not need posting, finishing, improving, or meaning. Just make. Quietly. Privately. For yourself.' },
+  { key:'nervous',  head:'Nervous System Reset Moment', sage:true,  title:'Unclench',                         sub:'Pause here.', body:'Relax your jaw. Drop your shoulders. Uncross your hands. Soften your forehead. Take one slower breath.<br><br><em>Your body deserves gentleness too.</em>' },
+  { key:'window',   head:'Window Light Practice',       sage:true,  title:'Notice the Quiet Beauty',          sub:'', body:'Pause near a window or somewhere natural light touches the room. Notice the shadows, the colours, the movement, the way light falls across ordinary things. Take a photo, sketch what you see, or simply sit with it for one full minute.' },
+];
+
+const NAV_ITEMS = [
+  { label:'Cover',                      page:0,  section:'welcome' },
+  { label:'Welcome',                    page:1,  section:'welcome' },
+  { label:'Check-In',                   page:2,  section:'day01'   },
+  { label:'Body Awareness Scan',        page:3,  section:'day01'   },
+  { label:'Creative Self Portrait',     page:4,  section:'day02'   },
+  { label:'What Lights Me Up',          page:5,  section:'day03'   },
+  { label:'Your Inner Light',           page:6,  section:'light'   },
+  { label:'My Permission Slip',         page:7,  section:'day04'   },
+  { label:'My Gentle Daily Rhythm',     page:8,  section:'day04'   },
+  { label:'Letting Go & Inviting In',   page:9,  section:'day05'   },
+  { label:'Creative Practices',         page:10, section:'day06'   },
+  { label:'Practice Reflection',        page:11, section:'day06'   },
+  { label:'Coming Home',                page:12, section:'day07'   },
+  { label:'Letter to Future Self',      page:13, section:'day07'   },
+  { label:'Daily Affirmations',         page:14, section:'extras'  },
+  { label:'Fridge Printables',          page:15, section:'extras'  },
+];
+
+const SIDEBAR_GROUPS = [
+  { label:'Introduction',          filter:'welcome' },
+  { label:'Day 01 · Nervous System',filter:'day01'  },
+  { label:'Day 02 · Creativity',   filter:'day02'  },
+  { label:'Day 03 · Creativity',   filter:'day03'  },
+  { label:'Your Inner Light',      filter:'light'  },
+  { label:'Day 04 · Permission',   filter:'day04'  },
+  { label:'Day 05 · Release',      filter:'day05'  },
+  { label:'Day 06 · Embodiment',   filter:'day06'  },
+  { label:'Day 07 · Integration',  filter:'day07'  },
+  { label:'Resources',             filter:'extras' },
+];
+
+const TOTAL = 15;
+
+// ═══════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════
+
+const state = {
+  page: parseInt(localStorage.getItem('ilr2-page') || '0'),
+  entries: JSON.parse(localStorage.getItem('ilr2-entries') || '{}'),
+};
+
+function save() {
+  try {
+    localStorage.setItem('ilr2-page', state.page);
+    localStorage.setItem('ilr2-entries', JSON.stringify(state.entries));
+  } catch(e) {}
+}
+
+// ═══════════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════════
+
+function goTo(p) {
+  p = Math.max(0, Math.min(TOTAL, p));
+  state.page = p; save();
+  render();
+  document.getElementById('main-content').scrollTop = 0;
+  closeSidebar();
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebar-overlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  EVENTS
+// ═══════════════════════════════════════════════════════════
+
+document.addEventListener('input', function(e) {
+  const t = e.target;
+  if (t.dataset.key) { state.entries[t.dataset.key] = t.value; save(); }
+});
+
+document.addEventListener('click', function(e) {
+  if (e.target.closest('#mobile-toggle'))  { toggleSidebar(); return; }
+  if (e.target.id === 'sidebar-overlay')   { closeSidebar(); return; }
+
+  const nav = e.target.closest('[data-goto]');
+  if (nav && !nav.disabled && !nav.hasAttribute('disabled')) { goTo(parseInt(nav.dataset.goto)); return; }
+
+  const moodBtn = e.target.closest('[data-mood]');
+  if (moodBtn) {
+    state.entries['mood'] = moodBtn.dataset.mood; save();
+    document.querySelectorAll('[data-mood]').forEach(b => b.classList.toggle('selected', b.dataset.mood === moodBtn.dataset.mood));
+    return;
+  }
+
+  const chip = e.target.closest('[data-word]');
+  if (chip) {
+    const group = chip.closest('[data-chip-group]');
+    if (!group) return;
+    const cat = group.dataset.chipGroup;
+    const key = 'chip-' + cat;
+    const word = chip.dataset.word;
+    let sel = JSON.parse(state.entries[key] || '[]');
+    const idx = sel.indexOf(word);
+    if (idx === -1) sel.push(word); else sel.splice(idx, 1);
+    state.entries[key] = JSON.stringify(sel); save();
+    chip.classList.toggle('selected', idx === -1);
+    return;
+  }
+
+  const pracBtn = e.target.closest('[data-practice]');
+  if (pracBtn) {
+    const key = 'prac-' + pracBtn.dataset.practice;
+    state.entries[key] = state.entries[key] === '1' ? '' : '1'; save();
+    pracBtn.classList.toggle('done', state.entries[key] === '1');
+    pracBtn.querySelector('.check-box').textContent = state.entries[key] === '1' ? '✓' : '';
+    return;
+  }
+
+  const affCard = e.target.closest('[data-aff]');
+  if (affCard) {
+    const num = affCard.dataset.aff;
+    state.entries['aff-picked'] = state.entries['aff-picked'] === num ? '' : num; save();
+    document.querySelectorAll('[data-aff]').forEach(c => c.classList.toggle('picked', c.dataset.aff === state.entries['aff-picked']));
+    return;
+  }
+
+  if (e.target.id === 'print-btn') { window.print(); return; }
+});
+
+// ═══════════════════════════════════════════════════════════
+//  RESTORE
+// ═══════════════════════════════════════════════════════════
+
+function restoreAll() {
+  // textareas / inputs
+  document.querySelectorAll('[data-key]').forEach(el => { el.value = state.entries[el.dataset.key] || ''; });
+  // mood
+  if (state.entries['mood']) {
+    document.querySelectorAll('[data-mood]').forEach(b => b.classList.toggle('selected', b.dataset.mood === state.entries['mood']));
+  }
+  // chips
+  document.querySelectorAll('[data-word]').forEach(chip => {
+    const group = chip.closest('[data-chip-group]');
+    if (!group) return;
+    const sel = JSON.parse(state.entries['chip-' + group.dataset.chipGroup] || '[]');
+    chip.classList.toggle('selected', sel.includes(chip.dataset.word));
+  });
+  // practices
+  document.querySelectorAll('[data-practice]').forEach(btn => {
+    const done = state.entries['prac-' + btn.dataset.practice] === '1';
+    btn.classList.toggle('done', done);
+    btn.querySelector('.check-box').textContent = done ? '✓' : '';
+  });
+  // affirmations
+  if (state.entries['aff-picked']) {
+    document.querySelectorAll('[data-aff]').forEach(c => c.classList.toggle('picked', c.dataset.aff === state.entries['aff-picked']));
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════════════════
+
+function render() {
+  document.getElementById('sidebar').innerHTML = buildSidebar();
+  document.getElementById('page-content').innerHTML = buildCurrentPage();
+  restoreAll();
+}
+
+function buildSidebar() {
+  const pct = Math.round((state.page / TOTAL) * 100);
+  let nav = '';
+  SIDEBAR_GROUPS.forEach(g => {
+    nav += `<div class="nav-group-label">${g.label}</div>`;
+    NAV_ITEMS.filter(n => n.section === g.filter).forEach(item => {
+      const active = state.page === item.page ? ' active' : '';
+      nav += `<div class="nav-item${active}" data-goto="${item.page}"><div class="nav-dot"></div>${item.label}</div>`;
+    });
+  });
+  return `
+    <div class="sidebar-brand">
+      <h1>Inner Light<br>Reset</h1>
+      <p>by Melissa Vermaak</p>
+      <div class="rainbow-mini"></div>
+    </div>
+    <nav class="sidebar-nav">${nav}</nav>
+    <div class="sidebar-progress">
+      <div class="progress-label">Journey · ${pct}%</div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>`;
+}
+
+function buildPageNav(p) {
+  const pd = p === 0 ? 'disabled' : '';
+  const nd = p === TOTAL ? 'disabled' : '';
+  return `<div class="page-nav">
+    <button class="nav-btn" data-goto="${p-1}" ${pd}>← Previous</button>
+    <div class="page-indicator">${p+1} / ${TOTAL+1}</div>
+    <button class="nav-btn" data-goto="${p+1}" ${nd}>Next →</button>
+  </div>`;
+}
+
+function ta(key, placeholder, rows) {
+  return `<textarea class="journal-input" data-key="${key}" placeholder="${placeholder || 'Write here…'}" rows="${rows||3}" style="min-height:${(rows||3)*26}px"></textarea>`;
+}
+
+function buildCurrentPage() {
+  switch(state.page) {
+    case  0: return buildCoverPage();
+    case  1: return buildWelcomePage();
+    case  2: return buildCheckinPage();
+    case  3: return buildBodyScanPage();
+    case  4: return buildSelfPortraitPage();
+    case  5: return buildLightsMeUpPage();
+    case  6: return buildInnerLightPage();
+    case  7: return buildPermissionPage();
+    case  8: return buildRhythmPage();
+    case  9: return buildLettingGoPage();
+    case 10: return buildPracticesPage();
+    case 11: return buildReflectionPage();
+    case 12: return buildComingHomePage();
+    case 13: return buildLetterPage();
+    case 14: return buildAffirmationsPage();
+    case 15: return buildFridgePage();
+    default: return '';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PAGE BUILDERS
+// ═══════════════════════════════════════════════════════════
+
+function buildCoverPage() {
+  return `<div class="cover-page">
+    <div class="cover-bg"></div>
+    <div class="cover-rainbow-top"></div>
+    <div class="cover-rainbow-bot"></div>
+    <div style="position:relative;z-index:1;max-width:520px">
+      <div class="cover-eyebrow">Inner Light Studio · Melissa Vermaak</div>
+      <div class="cover-tag">For overwhelmed mothers ready to reconnect</div>
+      <div class="cover-h1">7 Day<br>Inner Light</div>
+      <div class="cover-h2">Reset</div>
+      <div class="cover-divider"></div>
+      <p class="cover-desc">A gentle return to yourself. One small, sacred moment at a time.</p>
+      <div class="cover-stats">
+        <div><div class="stat-n">7</div><div class="stat-l">Days</div></div>
+        <div><div class="stat-n">12</div><div class="stat-l">Sections</div></div>
+        <div><div class="stat-n">9</div><div class="stat-l">Practices</div></div>
+      </div>
+      <button class="cover-cta" data-goto="1">Begin Your Reset →</button>
+      <div class="cover-author">With so much warmth, Melissa Vermaak</div>
+    </div>
+  </div>`;
+}
+
+function buildWelcomePage() {
+  const contents = [
+    ['01','The Gentle Check-In'],['02','Body Awareness Scan'],['03','Creative Self Portrait'],
+    ['04','What Lights Me Up'],['05','Your Inner Light'],['06','Releasing the Weight'],
+    ['07','My Permission Slip'],['08','Gentle Daily Rhythm'],['09','Letting Go & Inviting In'],
+    ['10','Daily Affirmations'],['11','Fridge Printable'],['12','A Letter to Yourself'],
+  ];
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">WELCOME</div>
+      <h1 class="page-title">I'm so glad you're here.</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">This workbook is for the creative in you.</p>
+    <p class="body-text">Not the version of you that has it together. Not the mother who woke up early, journaled perfectly, and smiled through the witching hour. This is for the real you — exhausted, tender, overstimulated, and quietly longing for something that feels like yourself again.</p>
+    <div class="section-label">How to use this workbook</div>
+    <ul style="list-style:none;margin-bottom:24px">
+      ${[
+        ['Move slowly.','There are no deadlines. Do one page and close it.'],
+        ['Ignore perfectionism.','These pages are for real, messy, imperfect answers.'],
+        ['Skip what doesn\'t fit.','Come back to it, or leave it. You decide.'],
+        ['Write in pencil.','Because you are allowed to change your mind.'],
+        ['Be gentle.','You are not here to fix yourself. You are here to return.'],
+      ].map(([b,r]) => `<li style="display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--parchment);font-size:13px;color:var(--warm)"><span style="color:var(--terracotta);font-weight:700">${b}</span><span>${r}</span></li>`).join('')}
+    </ul>
+    <div class="quote-box">"There is no wrong way to begin…<br>The only requirement is that you show up as you are."</div>
+    <div class="section-label">Inside this workbook</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 24px">
+      ${contents.map(([n,l]) => `<div style="font-size:12.5px;color:var(--warm);padding:5px 0;border-bottom:1px solid var(--parchment)"><span style="color:var(--terracotta);font-weight:700;margin-right:8px">${n}</span>${l}</div>`).join('')}
+    </div>
+    ${buildPageNav(1)}
+  </div>`;
+}
+
+function buildCheckinPage() {
+  const moods = [
+    ['running','Running on empty'],['overwhelmed','Overwhelmed'],
+    ['managing','Okay, managing'],['soft','Soft & present'],['alive','Open & alive'],
+  ];
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 01 · NERVOUS SYSTEM</div>
+      <h1 class="page-title">The Gentle Check-In</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <div class="instruction-box">Before anything else, pause. Place one hand on your chest. Take a slow breath.</div>
+    <div class="section-label">Circle where you feel today:</div>
+    <div class="mood-row">
+      ${moods.map(([m,l]) => `<button class="mood-btn" data-mood="${m}">${l}</button>`).join('')}
+    </div>
+    <span class="prompt-label">Right now, my body feels…</span>
+    ${ta('checkin-body','',3)}
+    <span class="prompt-label" style="margin-top:18px;display:block">The emotion sitting closest to the surface is…</span>
+    ${ta('checkin-emotion','',3)}
+    <span class="prompt-label" style="margin-top:18px;display:block">One small thing I notice in this moment is…</span>
+    ${ta('checkin-notice','',2)}
+    <span class="prompt-label" style="margin-top:18px;display:block">What I most need to hear today is…</span>
+    ${ta('checkin-need','',3)}
+    <div class="quote-box">"I am allowed to feel exactly what I am feeling right now, without explanation."</div>
+    ${buildPageNav(2)}
+  </div>`;
+}
+
+function buildBodyScanPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 01 · NERVOUS SYSTEM</div>
+      <h1 class="page-title">Body Awareness Scan</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <div class="instruction-box">Gently bring your attention to your body. Notice without judgment.</div>
+    <div style="margin-bottom:24px">
+      ${BODY_CHIPS.map(c => `
+        <div class="chip-group" data-chip-group="${c.key}">
+          <div class="chip-area-label">${c.label}</div>
+          <div class="chip-hint">${c.hint}</div>
+          <div class="chips">
+            ${c.words.map(w => `<div class="chip" data-word="${w}">${w}</div>`).join('')}
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="draw-card">
+      <div class="draw-card-icon">📓</div>
+      <div class="draw-card-title">Body Map — reach for your journal</div>
+      <div class="draw-card-text">The PDF includes a body outline to mark where you carry tension. Open your drawing pad or journal and sketch or annotate a simple body outline — no artistry needed. Simply mark where you're holding it all.</div>
+    </div>
+    <span class="prompt-label">Where is your body carrying the most tension right now?</span>
+    ${ta('scan-tension','Describe or name the area…',3)}
+    <span class="prompt-label" style="margin-top:18px;display:block">One kind thing I can offer my body today:</span>
+    ${ta('scan-kindness','',2)}
+    <div class="quote-box">"My body is not my enemy. It is carrying so much. I choose to meet it with tenderness."</div>
+    ${buildPageNav(3)}
+  </div>`;
+}
+
+function buildSelfPortraitPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 02 · CREATIVITY</div>
+      <h1 class="page-title">Your Creative Self Portrait</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">Who are you when no one needs anything from you?</p>
+    <div class="draw-card">
+      <div class="draw-card-icon">🎨</div>
+      <div class="draw-card-title">Draw, doodle, scribble — anything you like</div>
+      <div class="draw-card-text">This is a drawing and creative page. Reach for your sketchbook, journal, or any piece of paper. Draw, doodle, paint, or collage a self-portrait — not necessarily a likeness. Let it be messy, abstract, expressive. It only needs to be yours.</div>
+    </div>
+    <span class="prompt-label">Before motherhood, I used to love creating…</span>
+    ${ta('portrait-before','',3)}
+    <span class="prompt-label" style="margin-top:18px;display:block">A creative act I could do this week (however small)…</span>
+    ${ta('portrait-act','',2)}
+    <span class="prompt-label" style="margin-top:18px;display:block">The creative thing I keep putting off is…</span>
+    ${ta('portrait-putting-off','',2)}
+    <span class="prompt-label" style="margin-top:18px;display:block">When I imagine my most creatively alive self, she is…</span>
+    ${ta('portrait-alive','',3)}
+    <div class="quote-box">"My creativity does not need to be perfect. It does not need an audience. It just needs to be mine."</div>
+    ${buildPageNav(4)}
+  </div>`;
+}
+
+function buildLightsMeUpPage() {
+  const leftItems = Array.from({length:10},(_,i) => `<div class="bullet-row"><span class="bullet-dot">·</span><input class="bullet-field" data-key="lights-used-${i}" placeholder=" " /></div>`).join('');
+  const rightItems = Array.from({length:10},(_,i) => `<div class="bullet-row"><span class="bullet-dot">·</span><input class="bullet-field" data-key="lights-alive-${i}" placeholder=" " /></div>`).join('');
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 03 · CREATIVITY</div>
+      <h1 class="page-title">What Lights Me Up</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">Reconnecting with what genuinely brings you alive — even in tiny doses.</p>
+    <div class="two-col">
+      <div class="col-wrap">
+        <div class="col-header terra">Things that used to light me up</div>
+        <div class="col-items">${leftItems}</div>
+      </div>
+      <div class="col-wrap">
+        <div class="col-header sage">Things that still feel alive in me</div>
+        <div class="col-items">${rightItems}</div>
+      </div>
+    </div>
+    <span class="prompt-label">If I had one uninterrupted hour just for me, I would…</span>
+    ${ta('lights-hour','',2)}
+    <span class="prompt-label" style="margin-top:16px;display:block">One tiny creative act I could do before the week ends:</span>
+    ${ta('lights-tiny-act','',2)}
+    <div class="quote-box">I am allowed to want things for myself. Desire is not selfishness. It is self-knowledge.</div>
+    <span class="prompt-label">Brainstorm your desires here:</span>
+    <div class="draw-card" style="margin-top:0;padding:20px">
+      <div class="draw-card-icon">✏️</div>
+      <div class="draw-card-title">Open your journal for this one</div>
+      <div class="draw-card-text">This section calls for a free brainstorm — stream of consciousness, no filter. Give yourself a full page in your journal. Write everything that comes, however small or wild.</div>
+    </div>
+    ${buildPageNav(5)}
+  </div>`;
+}
+
+function buildInnerLightPage() {
+  return `<div class="inner-light-page">
+    <div class="cover-rainbow-top" style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--rainbow)"></div>
+    <div class="cover-rainbow-bot" style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rainbow)"></div>
+    <div class="light-logo">
+      <svg class="light-triangle" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="18" r="10" fill="#C9A86E" opacity=".7"/>
+        <line x1="80" y1="28" x2="80" y2="60" stroke="#8B7B6B" stroke-width="1.5"/>
+        <polygon points="80,30 28,148 132,148" stroke="#8B7B6B" stroke-width="1.5" fill="none"/>
+        <polygon points="80,60 52,148 108,148" fill="url(#lg)" opacity=".5"/>
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C4B068"/>
+            <stop offset="40%" stop-color="#8DB5A8"/>
+            <stop offset="70%" stop-color="#8BAE5E"/>
+            <stop offset="100%" stop-color="#C2705A"/>
+          </linearGradient>
+        </defs>
+        <line x1="28" y1="148" x2="32" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="36" y1="148" x2="40" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="44" y1="148" x2="48" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="52" y1="148" x2="56" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="60" y1="148" x2="64" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="68" y1="148" x2="72" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="76" y1="148" x2="80" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="84" y1="148" x2="88" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="92" y1="148" x2="96" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="100" y1="148" x2="104" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="108" y1="148" x2="112" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="116" y1="148" x2="120" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="124" y1="148" x2="128" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+        <line x1="132" y1="148" x2="136" y2="148" stroke="#8B7B6B" stroke-width="1.5"/>
+      </svg>
+      <div class="light-brand">Inner Light Studio</div>
+      <div class="light-sub">by Melissa Vermaak</div>
+    </div>
+    <div class="light-quote">Your inner light has always been there.</div>
+    <p class="light-body">Just like light through a prism — when you slow down, you don't become something new. You reveal what was always inside you: the whole, beautiful spectrum.</p>
+    <div style="width:100%;max-width:480px;text-align:left">
+      <span class="light-prompt">I see my inner light most clearly when…</span>
+      ${ta('innerlight-when','',6)}
+    </div>
+    <div style="margin-top:32px">
+      ${buildPageNav(6)}
+    </div>
+  </div>`;
+}
+
+function buildPermissionPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 04 · PERMISSION</div>
+      <h1 class="page-title">My Permission Slip</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="body-text">You've just spent two days doing something most mothers never do. You checked in with yourself — honestly, without performance. You turned toward your body — the jaw that has been clenching, the shoulders that have been carrying, the chest that has been quietly waiting for someone to notice it was tight. That was not a small thing.</p>
+    <p class="body-text">What you found there — the exhaustion, the tension, the emotion sitting just beneath the surface — that is information. Your body has been holding all of it, loyally and without complaint, because somewhere along the way you learned that it wasn't quite safe to put it down.</p>
+    <p class="body-text">The permission slip isn't a task to complete. It is simply a way of making visible something your nervous system has been waiting to hear. <strong>You were just waiting for someone to say so. So here it is, in writing, from you to you: You have permission.</strong></p>
+    <div class="permission-slip">
+      <div class="perm-name-row">
+        I, <input class="perm-name-input" data-key="perm-name" placeholder="your name"> ,
+      </div>
+      <div class="perm-title">hereby give myself full permission to:</div>
+      <ul class="perm-list">
+        <li>Rest without guilt, even when the to-do list is unfinished.</li>
+        <li>Say no — to people, plans, and things that drain me.</li>
+        <li>Feel my feelings, even the inconvenient, ugly, or confusing ones.</li>
+        <li>Create imperfectly, without needing a finished product.</li>
+        <li>Take up space, have needs, and ask for help.</li>
+        <li>Change my mind, my plans, and my pace.</li>
+        <li>Begin again — today, tomorrow, and as many times as I need. Be a work in progress, and enough, all at once.</li>
+      </ul>
+      <div class="sign-row">
+        <div class="sign-field">
+          <div class="sign-label">Signed:</div>
+          <input class="sign-input" data-key="perm-sig" placeholder="your signature">
+        </div>
+        <div class="sign-field">
+          <div class="sign-label">Date:</div>
+          <input class="sign-input" data-key="perm-date" placeholder="today's date" style="min-width:140px">
+        </div>
+      </div>
+    </div>
+    <div class="quote-box">"You are not too much. You are not a burden. You are a mother who is learning to mother herself too."</div>
+    ${buildPageNav(7)}
+  </div>`;
+}
+
+function buildRhythmPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 04 · PRESENCE</div>
+      <h1 class="page-title">My Gentle Daily Rhythm</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">Not a perfect routine. Just three gentle anchors for your day, keeping in mind your permission slip.</p>
+    <div class="rhythm-block">
+      <div class="rhythm-head morning">Morning</div>
+      <div class="rhythm-hint">How I want to begin my day (even for 5 minutes)…</div>
+      <textarea class="rhythm-ta" data-key="rhythm-morning" rows="3"></textarea>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-head afternoon">Afternoon</div>
+      <div class="rhythm-hint">One reset I can offer myself in the middle of the day…</div>
+      <textarea class="rhythm-ta" data-key="rhythm-afternoon" rows="3"></textarea>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-head evening">Evening</div>
+      <div class="rhythm-hint">How I want to close the day, gently…</div>
+      <textarea class="rhythm-ta" data-key="rhythm-evening" rows="3"></textarea>
+    </div>
+    <span class="prompt-label" style="margin-top:8px;display:block">This week, the one small ritual I'm committing to is…</span>
+    ${ta('rhythm-ritual','',3)}
+    <div class="quote-box">A gentle rhythm is not a prison. It is a soft scaffold — something to lean on when everything else feels wobbly.</div>
+    ${buildPageNav(8)}
+  </div>`;
+}
+
+function buildLettingGoPage() {
+  const leftItems = Array.from({length:10},(_,i) => `<div class="bullet-row"><span class="bullet-dot">·</span><input class="bullet-field" data-key="letgo-${i}" placeholder=" " /></div>`).join('');
+  const rightItems = Array.from({length:10},(_,i) => `<div class="bullet-row"><span class="bullet-dot">·</span><input class="bullet-field" data-key="invite-${i}" placeholder=" " /></div>`).join('');
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 05 · RELEASE</div>
+      <h1 class="page-title">Letting Go & Inviting In</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">What are you ready to gently put down? What are you ready to welcome?</p>
+    <div class="two-col">
+      <div class="col-wrap">
+        <div class="col-header terra">I am letting go of…</div>
+        <div class="col-items">${leftItems}</div>
+      </div>
+      <div class="col-wrap">
+        <div class="col-header sage">I am inviting in…</div>
+        <div class="col-items">${rightItems}</div>
+      </div>
+    </div>
+    <span class="prompt-label">The heaviest thing I have been carrying that is not mine to carry…</span>
+    ${ta('letgo-heavy','',3)}
+    <span class="prompt-label" style="margin-top:16px;display:block">The feeling I most want to experience more of is…</span>
+    ${ta('letgo-feeling','',3)}
+    <div class="quote-box">Letting go is not giving up. It is choosing, with great gentleness, what you will no longer carry.</div>
+    <div class="section-label">Affirmations for release:</div>
+    ${['I release the past and embrace the present with an open heart.','I forgive myself and others, freeing my heart from resentment.','I am not my past; I am creating my future now.'].map((a,i) => `<div style="font-family:'Playfair Display',serif;font-size:13.5px;font-style:italic;color:var(--warm);padding:8px 0;border-bottom:1px solid var(--parchment)">${i+1}. "${a}"</div>`).join('')}
+    ${buildPageNav(9)}
+  </div>`;
+}
+
+function buildPracticesPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 06 · EMBODIMENT</div>
+      <h1 class="page-title">Guided Creative Reset Practices</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="body-text" style="font-style:italic">Today is about reconnecting with yourself through small sensory moments, gentle creativity, and embodied presence. These practices are designed to help your nervous system soften. Move slowly, choose what resonates, and let this day be an experience rather than a performance.</p>
+    <div class="instruction-box">Before beginning today's page, pause and notice: 3 things you can see · 2 things you can hear · 1 thing your body can physically feel</div>
+    <div class="section-label">9 Gentle Practices · Choose 1 or 2 that call to you</div>
+    <div class="practice-grid">
+      ${PRACTICES.map(p => `
+        <div class="practice-tile">
+          <div class="tile-head ${p.sage ? 'sage' : ''}">${p.head}</div>
+          <div class="tile-inner">
+            <div class="tile-title">${p.title}</div>
+            ${p.sub ? `<div class="tile-sub">${p.sub}</div>` : ''}
+            <div class="tile-body">${p.body}</div>
+            <button class="practice-done-btn" data-practice="${p.key}">
+              <div class="check-box"></div> Mark done
+            </button>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div class="quote-box">There is nothing to change or fix. Simply notice yourself existing here, in this moment.</div>
+    ${buildPageNav(10)}
+  </div>`;
+}
+
+function buildReflectionPage() {
+  const reflections = [
+    'How does my body feel now?',
+    'What felt calming, grounding, or alive?',
+    'What did I notice about myself during this practice?',
+    'Was there a moment that felt unexpectedly meaningful?',
+    'What do I want more of in my everyday life?',
+  ];
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 06 · EMBODIMENT</div>
+      <h1 class="page-title">After Your Practice</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">After completing your chosen practice/s, take a quiet moment to notice what shifted.</p>
+    <p class="body-text">You might reflect on:</p>
+    <ul style="list-style:none;margin-bottom:24px">
+      ${reflections.map(r => `<li style="font-family:'Playfair Display',serif;font-size:13.5px;font-style:italic;color:var(--warm);padding:6px 0;border-bottom:1px solid var(--parchment)">— ${r}</li>`).join('')}
+    </ul>
+    <p class="body-text" style="font-style:italic">There are no right answers here — only awareness.</p>
+    <div style="background:white;border:1px solid var(--parchment);padding:20px;margin:16px 0;min-height:200px">
+      ${ta('reflect-notes','Write your reflections here…',8)}
+    </div>
+    <div class="quote-box">"There is nothing to change or fix. Simply notice yourself existing here, in this moment."</div>
+    ${buildPageNav(11)}
+  </div>`;
+}
+
+function buildComingHomePage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 07 · INTEGRATION</div>
+      <h1 class="page-title">Coming Home</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <div class="instruction-box">Before anything else, pause. Place one hand on your chest and take a slow breath. Thank yourself — the deeper, wiser part of you — for choosing to return here.</div>
+    <p class="italic-text">Over the past week, you've made space for yourself in small but meaningful ways. You've slowed down enough to notice what your body, creativity, and inner world have been quietly asking for — and that alone is something worth honouring.</p>
+    <p class="body-text">This reset was never about becoming a new person or fixing yourself perfectly. It was about remembering that beneath the exhaustion, pressure, and constant giving, your inner light was still there — waiting patiently for you to return to it.</p>
+    <p class="body-text">As you move forward from here, carry this with you:</p>
+    ${['small moments matter.','Softness matters.','Creativity does not need to be productive to be meaningful.'].map(s => `<div style="font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--terracotta);padding:6px 0">${s}</div>`).join('')}
+    <p class="body-text" style="margin-top:20px">You are allowed to continue choosing yourself, again and again, in whatever ways you can. And whenever life feels loud or heavy again, may you remember: <em>you already know the way back home to yourself.</em></p>
+    <div style="border-top:1px solid var(--parchment);padding-top:24px;margin-top:24px">
+      <div class="section-label">Final Practice — A Letter to Your Future Self</div>
+      <p class="body-text" style="font-style:italic">Write a few words to the version of you reading this weeks or months from now. Remind her:</p>
+      <ul style="list-style:none;margin:0 0 20px;font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--mid)">
+        ${['what helped you feel most like yourself again','what you want to continue making space for','what your nervous system needs more of','what creativity feels like in your body now','what you hope she never forgets again'].map(i => `<li style="padding:4px 0;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--terracotta)">—</span>${i}</li>`).join('')}
+      </ul>
+      <p class="body-text" style="font-style:italic">This letter does not need to sound wise or perfect. It only needs to be honest.</p>
+      <p class="body-text">→ Turn to the next page to write your letter.</p>
+    </div>
+    ${buildPageNav(12)}
+  </div>`;
+}
+
+function buildLetterPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAY 07 · INTEGRATION</div>
+      <h1 class="page-title">Letter to Your Future Self</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">One gentle reminder from you to you: you can always find your way back to yourself.</p>
+    <div class="lined-area">
+      <textarea class="lined-ta" data-key="letter-body" placeholder="Dear future me…"></textarea>
+    </div>
+    <div class="sign-block">
+      <div class="sign-field">
+        <div class="sign-label">Signed:</div>
+        <input class="sign-input" data-key="letter-sig" placeholder="your name">
+      </div>
+      <div class="sign-field">
+        <div class="sign-label">Date:</div>
+        <input class="sign-input" data-key="letter-date" placeholder="today's date" style="min-width:140px">
+      </div>
+    </div>
+    ${buildPageNav(13)}
+  </div>`;
+}
+
+function buildAffirmationsPage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">AFFIRMATIONS</div>
+      <h1 class="page-title">Words to Return To</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">Write down the one that feels true today. Return tomorrow and choose again.</p>
+    <div class="aff-grid">
+      ${AFFIRMATIONS.map((a,i) => `
+        <div class="aff-card" data-aff="${i+1}">
+          <div class="aff-num">${i+1}</div>
+          <div class="aff-txt">${a}</div>
+        </div>`).join('')}
+    </div>
+    <div class="section-label">The affirmation I most need today — one per day:</div>
+    <div class="day-tracker">
+      ${['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7'].map((d,i) => `
+        <div class="tracker-day">
+          <div class="tracker-label">${d}</div>
+          <input class="tracker-input" data-key="aff-day-${i}" placeholder="…">
+        </div>`).join('')}
+    </div>
+    <div class="quote-box">You do not need to earn rest.<br>You do not need permission to come back to yourself.<br>You are allowed to begin again today.</div>
+    ${buildPageNav(14)}
+  </div>`;
+}
+
+function buildFridgePage() {
+  return `<div class="page">
+    <div class="page-header">
+      <div class="day-eyebrow">DAILY PRACTICE</div>
+      <h1 class="page-title">Fridge Printables</h1>
+      <div class="rainbow-bar"></div>
+    </div>
+    <p class="italic-text">Cut out and display where you'll see them. Repeat daily.</p>
+    <button class="print-btn" id="print-btn">🖨 Print This Page</button>
+    <div class="fridge-grid">
+      <div class="fridge-card">
+        <div class="fridge-title">Mama's Daily Permissions</div>
+        ${['I am allowed to rest','I am allowed to say no','I am allowed to feel it all','I am allowed to be imperfect','I am enough, right now'].map(i => `<div class="fridge-item">${i}</div>`).join('')}
+        <div class="fridge-brand">Inner Light Studio</div>
+      </div>
+      <div class="fridge-card">
+        <div class="fridge-title">Nervous System Helpers</div>
+        ${['4-7-8 breathing','Warm drink, two hands','Step outside, bare feet','One favourite song','3 lines in your journal'].map(i => `<div class="fridge-item">${i}</div>`).join('')}
+        <div class="fridge-brand">Inner Light Studio</div>
+      </div>
+      <div class="fridge-card fridge-full">
+        <div class="fridge-title">This Week's Intention</div>
+        <div class="fridge-item" style="font-style:italic;color:var(--mid);text-align:left;padding:8px 0">I intend to…</div>
+        ${ta('fridge-intention','Write your intention here…',3)}
+        <div class="fridge-item" style="font-style:italic;font-size:12px;margin-top:10px">And I give myself permission to do this imperfectly.</div>
+        <div class="fridge-brand">Inner Light Studio</div>
+      </div>
+    </div>
+    <div class="quote-box" style="margin-top:40px">
+      "You made it to the end of this workbook. Or maybe you skipped around, did three pages, spilled tea on it, and haven't touched it since.<br><br>All of that is okay. All of that is real.<br><br>What matters is that somewhere, in some small moment, you chose to turn toward yourself.<br><br><strong>That is not a small thing. That is the whole thing.</strong><br><br>You are your own inner light. You always have been."
+      <div style="margin-top:16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)">With so much warmth, Melissa Vermaak</div>
+    </div>
+    ${buildPageNav(15)}
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════
+
+render();
+</script>
+</body>
+</html>
